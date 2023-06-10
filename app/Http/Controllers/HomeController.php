@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Obat;
 use App\Models\Order;
 use App\Models\Contact;
+use App\Models\Kesehatan;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -62,6 +63,22 @@ class HomeController extends Controller
     {
         $data = Contact::all();
         return view('pages.konsultasi.index', [
+            'data' => $data,
+        ]);
+    }
+
+    public function kesehatan()
+    {
+        $data = Kesehatan::all();
+        return view('pages.kesehatan.index', [
+            'data' => $data,
+        ]);
+    }
+
+    public function kesehatanDetail($slug)
+    {
+        $data = Kesehatan::where('slug', $slug)->first();
+        return view('pages.kesehatan.detail', [
             'data' => $data,
         ]);
     }

@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KesehatanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,8 @@ Route::controller(HomeController::class)->name('medicine.')->group( function() {
     Route::get('/pesanan', 'pesanan')->name('order');
     Route::get('/invoice/{id}', 'invoice')->name('invoice');
     Route::get('/konsultasi', 'konsultasi')->name('konsultasi');
+    Route::get('/kesehatan', 'kesehatan')->name('kesehatan');
+    Route::get('/kesehatan/{slug}', 'kesehatanDetail')->name('kesehatan-detail');
 });
 
 Route::controller(ProfileController::class)->name('profile.')->group( function() {
@@ -70,6 +73,15 @@ Route::middleware(['auth','ceklevel:Admin'])->group(function () {
         Route::get('/', 'index')->name('index');
         Route::put('/store', 'store')->name('store');
         Route::put('/update/{id}', 'update')->name('update');
+        Route::put('/delete/{id}', 'delete')->name('delete');
+    });
+
+    Route::controller(KesehatanController::class)->prefix('data/kesehatan')->name('admin.kesehatan.')->group( function() {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'kesehatanCreate')->name('kesehatan-create');
+        Route::post('/create', 'kesehatanPost')->name('kesehatan-post');
+        Route::get('/edit/{slug}', 'kesehatanEdit')->name('kesehatan-edit');
+        Route::post('/update/{slug}', 'update')->name('update');
         Route::put('/delete/{id}', 'delete')->name('delete');
     });
 });

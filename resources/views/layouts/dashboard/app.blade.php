@@ -8,6 +8,9 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/favicon.png')}}" />
     <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/libs/quill/dist/quill.snow.css">
+    <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
+
     <style>
         .table.datatab {
             text-align: center;
@@ -15,6 +18,10 @@
 
         .table.datatab th {
             text-align: center;
+        }
+
+        .ck-editor__editable {
+            min-height: 300px;
         }
     </style>
 </head>
@@ -51,7 +58,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+                            <a class="sidebar-link" href="{{ route('medicine.kesehatan') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-activity"></i>
                                 </span>
@@ -99,7 +106,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                            <a class="sidebar-link" href="{{ route('admin.kesehatan.index') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-heartbeat"></i>
                                 </span>
@@ -163,7 +170,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="https://ui-avatars.com/api/?name={{ auth()->user()->first_name }} " alt=""
+                                    <img src="https://ui-avatars.com/api/?name={{ auth()->user()->first_name }}" alt=""
                                         width="35" height="35" class="rounded-circle">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
