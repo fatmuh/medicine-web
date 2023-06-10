@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Obat;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,10 +24,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.dashboard.index');
+        $data = Obat::all();
+        return view('pages.dashboard.index', [
+            'data' => $data,
+        ]);
     }
 
-    public function obat() {
-        return view('pages.obat.index');
+    public function obat()
+    {
+        $data = Obat::all();
+        return view('pages.obat.index', [
+            'data' => $data,
+        ]);
     }
 }

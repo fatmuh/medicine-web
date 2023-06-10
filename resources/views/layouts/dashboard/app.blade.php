@@ -83,7 +83,7 @@
                             <span class="hide-menu">ADMIN MENU</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                            <a class="sidebar-link" href="{{ route('admin.obat.index') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-pill"></i>
                                 </span>
@@ -194,6 +194,8 @@
             </div> --}}
         </div>
     </div>
+
+    @include('sweetalert::alert')
 
     <script src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>

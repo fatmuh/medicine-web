@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ObatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,15 @@ Auth::routes();
 Route::controller(HomeController::class)->name('medicine.')->group( function() {
     Route::get('/', 'index')->name('index');
     Route::get('/obat', 'obat')->name('obat');
+});
+
+Route::middleware(['auth','ceklevel:Admin'])->group(function () {
+    Route::controller(ObatController::class)->prefix('data/obat')->name('admin.obat.')->group( function() {
+        Route::get('/', 'index')->name('index');
+        Route::put('/store', 'store')->name('store');
+        Route::put('/update/{id}', 'update')->name('update');
+        Route::put('/delete/{id}', 'delete')->name('delete');
+    });
 });
 
 

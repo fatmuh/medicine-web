@@ -13,24 +13,32 @@
         <p class="mb-0">
             <table class="table datatab">
                 <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Nama Obat</th>
-                    <th>Satuan</th>
-                    <th>Harga</th>
-                    <th>Status</th>
-                    <th>Jumlah</th>
-                  </tr>
+                    <tr>
+                        <th>#</th>
+                        <th>Nama Obat</th>
+                        <th>Jenis Obat</th>
+                        <th>Satuan</th>
+                        <th>Harga</th>
+                        <th>Status</th>
+                        <th>Jumlah</th>
+                        <th><i class="ti ti-settings"></i></th>
+                    </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Paracetamol</td>
-                    <td>1 Kaplet</td>
-                    <td>10.000</td>
-                    <td>Tersedia</td>
-                    <td>10</td>
-                  </tr>
+                    @foreach ($data as $obat)
+                    <tr>
+                        <th scope="row">{{ $loop->iteration }}</th>
+                        <td>{{ $obat->nama }}</td>
+                        <td>{{ $obat->jenis }}</td>
+                        <td>{{ $obat->satuan }}</td>
+                        <td>{{ "Rp".number_format($obat->harga,2,',','.') }}</td>
+                        <td>{{ $obat->status }}</td>
+                        <td>{{ $obat->stok }}</td>
+                        <td><a href="" class="btn btn-light-success text-success" data-bs-toggle="modal" data-bs-target="#ModalEdit{{ $obat->id }}">
+                            <i class="ti ti-shopping-cart fs-5 text-center"></i>
+                        </a></td>
+                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </p>
