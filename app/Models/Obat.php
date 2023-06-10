@@ -21,4 +21,9 @@ class Obat extends Model
     ];
 
     protected $hidden;
+
+    public function order()
+    {
+        return $this->hasOne(Order::class, 'obat_id');
+    }
 }

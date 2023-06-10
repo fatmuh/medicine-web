@@ -68,6 +68,14 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ route('medicine.order') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-garden-cart"></i>
+                                </span>
+                                <span class="hide-menu">Pesanan Saya</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
                             <a class="sidebar-link" href="https://wa.link/ibo9x8" aria-expanded="false" target="_blank">
                                 <span>
                                     <i class="ti ti-messages"></i>
@@ -99,7 +107,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
+                            <a class="sidebar-link" href="{{ route('admin.pesanan.index') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-shopping-cart"></i>
                                 </span>

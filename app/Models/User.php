@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    public function order()
+    {
+        return $this->hasOne(Order::class, 'user_id');
+    }
 }

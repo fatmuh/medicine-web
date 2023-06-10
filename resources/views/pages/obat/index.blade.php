@@ -34,10 +34,11 @@
                         <td>{{ "Rp".number_format($obat->harga,2,',','.') }}</td>
                         <td>{{ $obat->status }}</td>
                         <td>{{ $obat->stok }}</td>
-                        <td><a href="" class="btn btn-light-success text-success" data-bs-toggle="modal" data-bs-target="#ModalEdit{{ $obat->id }}">
+                        <td><a href="" class="btn btn-light-success text-success" data-bs-toggle="modal" data-bs-target="#ModalAdd{{ $obat->id }}">
                             <i class="ti ti-shopping-cart fs-5 text-center"></i>
                         </a></td>
                     </tr>
+                    @include('pages.obat.add')
                     @endforeach
                 </tbody>
             </table>

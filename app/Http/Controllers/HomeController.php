@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Obat;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,9 +23,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Obat::all();
+        $search = $request->input('search');
+        $data = Obat::where('nama', 'LIKE', '%' . $search . '%')->get();
         return view('pages.dashboard.index', [
             'data' => $data,
         ]);
@@ -34,6 +36,23 @@ class HomeController extends Controller
     {
         $data = Obat::all();
         return view('pages.obat.index', [
+            'data' => $data,
+        ]);
+    }
+
+    public function pesanan()
+    {
+        $user_id = auth()->user()->id;
+        $data = Order::latest()->where('user_id', $user_id)->get();
+        return view('pages.pesanan.index', [
+            'data' => $data,
+        ]);
+    }
+
+    public function invoice($id)
+    {
+        $data = Order::findOrFail($id);
+        return view('pages.pesanan.invoice', [
             'data' => $data,
         ]);
     }
