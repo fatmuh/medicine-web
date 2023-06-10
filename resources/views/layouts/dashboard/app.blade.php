@@ -38,7 +38,6 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
                     <ul id="sidebarnav">
-                        {{-- @if (auth()->user()->role == "User") --}}
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                             <span class="hide-menu">MEDICINE</span>
@@ -59,6 +58,7 @@
                                 <span class="hide-menu">Kesehatan</span>
                             </a>
                         </li>
+                        @if (auth()->user()->role == "User")
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ route('medicine.obat') }}" aria-expanded="false">
                                 <span>
@@ -83,7 +83,7 @@
                                 <span class="hide-menu">Konsultasi</span>
                             </a>
                         </li>
-                        {{-- @endif --}}
+                        @endif
 
                         @if (auth()->user()->role == "Admin")
                         <li class="nav-small-cap">

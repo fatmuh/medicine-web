@@ -1,7 +1,7 @@
 @extends('layouts.dashboard.app')
 
 @section('title')
-<title>Medicine</title>
+<title>Medicine - Pesanan Saya</title>
 @endsection
 
 @section('content')
