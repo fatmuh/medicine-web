@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,13 @@ Route::controller(HomeController::class)->name('medicine.')->group( function() {
     Route::get('/obat', 'obat')->name('obat');
     Route::get('/pesanan', 'pesanan')->name('order');
     Route::get('/invoice/{id}', 'invoice')->name('invoice');
+});
+
+Route::controller(ProfileController::class)->name('profile.')->group( function() {
+    Route::get('/profile', 'index')->name('index');
+    Route::put('/profile/update', 'update')->name('update');
+    Route::get('/profile/change-password', 'changePassword')->name('changePassword');
+    Route::post('/profile/change-password', 'changePasswordPost')->name('changePassword.post');
 });
 
 Route::controller(OrderController::class)->name('order.')->group( function() {
