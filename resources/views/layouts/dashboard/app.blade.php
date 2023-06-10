@@ -76,7 +76,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="https://wa.link/ibo9x8" aria-expanded="false" target="_blank">
+                            <a class="sidebar-link" href="{{ route('medicine.konsultasi') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-messages"></i>
                                 </span>
@@ -112,6 +112,14 @@
                                     <i class="ti ti-shopping-cart"></i>
                                 </span>
                                 <span class="hide-menu">Data Pesanan</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ route('admin.konsultasi.index') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-address-book"></i>
+                                </span>
+                                <span class="hide-menu">Data Konsultasi</span>
                             </a>
                         </li>
                         <li class="sidebar-item">

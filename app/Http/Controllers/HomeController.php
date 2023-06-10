@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Obat;
 use App\Models\Order;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -53,6 +54,14 @@ class HomeController extends Controller
     {
         $data = Order::findOrFail($id);
         return view('pages.pesanan.invoice', [
+            'data' => $data,
+        ]);
+    }
+
+    public function konsultasi()
+    {
+        $data = Contact::all();
+        return view('pages.konsultasi.index', [
             'data' => $data,
         ]);
     }
