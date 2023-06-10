@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('pages.dashboard.index');
+    }
+
+    public function obat() {
+        return view('pages.obat.index');
     }
 }
