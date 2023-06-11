@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content border-0">
             <div class="modal-header bg-primary">
-                <h6 class="modal-title text-white">Ubah Data Obat</h6>
+                <h6 class="modal-title text-white">Pesan Obat</h6>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
