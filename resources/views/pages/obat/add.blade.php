@@ -72,6 +72,38 @@
 
                             </div>
 
+                            <div class="row">
+
+                                <div class="col-md-12 mt-4 text-center">
+                                    <div class="note-title">
+                                        <img src="https://www.unisba.ac.id/wp-content/uploads/2022/11/logo-bsi-1.png" alt="" width="80px" class="mb-2"><br>71528132823 a.n. R. Zidan Sholaha
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-6 mt-2">
+                                    <div class="note-title">
+                                        <label>Tipe Pembayaran</label>
+                                        <select class="form-select mr-sm-2" name="type_of_payment" required>
+                                            <option>---Silahkan Pilih---</option>
+                                            <option value="COD">COD</option>
+                                            <option value="Transfer">Transfer</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mt-2">
+                                    <div class="note-description">
+                                        <label>Bukti Pembayaran</label>
+                                        <input type="file" class="form-control" name="proof_of_payment"/>
+                                    </div>
+                                </div>
+
+                            </div>
+
                     </div>
                 </div>
             </div>

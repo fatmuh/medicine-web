@@ -58,10 +58,12 @@
                                                     <tr>
                                                         <th class="text-center">#</th>
                                                         <th>Nama Obat</th>
-                                                        <th class="text-end">Jumlah</th>
-                                                        <th class="text-end">Harga Barang</th>
-                                                        <th class="text-end">Total</th>
-                                                        <th class="text-end">Waktu Pengambilan</th>
+                                                        <th class="text-center">Jumlah</th>
+                                                        <th class="text-center">Harga Barang</th>
+                                                        <th class="text-center">Total</th>
+                                                        <th class="text-center">Waktu Pengambilan</th>
+                                                        <th class="text-center">Tipe Pembayaran</th>
+                                                        <th class="text-center">Bukti Pembayaran</th>
                                                     </tr>
                                                     <!-- end row -->
                                                 </thead>
@@ -70,10 +72,18 @@
                                                     <tr>
                                                         <td class="text-center">1</td>
                                                         <td>{{ $data->obat->nama }} ({{ $data->obat->jenis }})</td>
-                                                        <td class="text-end">{{ $data->jumlah }}</td>
-                                                        <td class="text-end">{{ "Rp".number_format($data->obat->harga,2,',','.') }}</td>
-                                                        <td class="text-end">{{ "Rp".number_format($data->total_harga,2,',','.') }}</td>
-                                                        <td>{{ date('d M Y \J\a\m H:i', strtotime($data->waktu_ambil)) }}</td>
+                                                        <td class="text-center">{{ $data->jumlah }}</td>
+                                                        <td class="text-center">{{ "Rp".number_format($data->obat->harga,2,',','.') }}</td>
+                                                        <td class="text-center">{{ "Rp".number_format($data->total_harga,2,',','.') }}</td>
+                                                        <td class="text-center">{{ date('d M Y \J\a\m H:i', strtotime($data->waktu_ambil)) }}</td>
+                                                        <td class="text-center">{{ $data->type_of_payment }}</td>
+                                                        <td class="text-center">
+                                                            @if ($data->proof_of_payment == null)
+                                                                -
+                                                            @else
+                                                                <a href="{{ asset('storage/'.$data->proof_of_payment) }}" class="btn btn-primary" target="_blank">Lihat Bukti</a>
+                                                            @endif
+                                                        </td>
                                                     </tr>
                                                     <!-- end row -->
                                                 </tbody>

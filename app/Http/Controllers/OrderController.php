@@ -18,11 +18,24 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
+        if ($request->type_of_payment == "Transfer" && $request->proof_of_payment == null) {
+            return redirect()->back()->with('toast_error', 'Upload Bukti Transfer!');
+        } elseif ($request->type_of_payment == "COD" && $request->proof_of_payment != null) {
+            return redirect()->back()->with('toast_error', 'Tipe Pembayaran COD Tidak Menggunakan Bukti Transfer!');
+        }
+
         $validatedData = $request->validate([
             'obat_id' => 'required',
             'jumlah' => 'required',
             'waktu_ambil' => 'required',
+            'type_of_payment' => 'required',
+            'proof_of_payment' => 'image|file|max:2048',
+            'waktu_ambil' => 'required',
         ]);
+
+        if($request->file('proof_of_payment')) {
+            $validatedData['proof_of_payment'] = $request->file('proof_of_payment')->store('image/proof_of_payment');
+        }
 
         $obat = Obat::findOrFail($validatedData['obat_id']);
 

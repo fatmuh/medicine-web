@@ -16,6 +16,8 @@ class Order extends Model
         'jumlah',
         'total_harga',
         'waktu_ambil',
+        'type_of_payment',
+        'proof_of_payment',
         'status',
     ];
 
